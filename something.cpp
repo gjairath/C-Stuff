@@ -4,21 +4,16 @@
 #include <iostream>
 #include <unordered_map>
 	
-  
-void printFrequency(std::string str) 
+
+int main() 
 { 
-    // Define an unordered_map 
+	std:: string str;
+	std::cin >> str;
+	
     std::unordered_map<char, int> M; 
   
-    // Traverse string str check if 
-    // current character is present 
-    // or not 
-    for (int i = 0; str[i]; i++) { 
   
-        // If the current characters 
-        // is not found then insert 
-        // current characters with 
-        // frequency 1 
+    for (int i = 0; str[i]; i++) { 
         if (M.find(str[i]) == M.end()) { 
             M.insert(std::make_pair(str[i], 1)); 
         } 
@@ -28,32 +23,25 @@ void printFrequency(std::string str)
             M[str[i]]++; 
         } 
     } 
-  
-    // Traverse the map to print the 
-    // frequency 
+
     int counter = 0;
     
      for (std::pair<char, int> element : M)
     {
-    	if (element.second == 1){
-    		counter++;
+    	if (element.second > 1){
+    		element.second = 1;
 		}
+		if (element.second == 1) {
+			counter++;
+		}
+	//	std::cout << element.first << " " << element.second << std::endl;
     }
     if (counter % 2 == 0) {
     	//std::cout << counter;
     	std::cout << "CHAT WITH HER!";
 	} else {
 		std::cout << "IGNORE HIM!";
-	}
-} 
-  
-// Driver Code 
-int main() 
-{ 
-    std::string str = "sevenkplus"; 
-  
-    // Function call 
-    printFrequency(str); 
+	} 
     return 0; 
 } 
 
