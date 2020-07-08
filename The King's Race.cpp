@@ -9,7 +9,7 @@ typedef long long int ll;
 
 // White-Black king problem.
 
-// Step 1: Encapsulate the board.
+// I wish I fucking remembered the time limit.
 
 int main() {
 	ll size;
@@ -17,10 +17,10 @@ int main() {
 	cin >> size;
 	
 	int someArray[size][size];
-	int coinArray[2];
+	ll coinArray[2];
 	
 	for (int i = 0; i < 2; i++) {
-		int temp;
+		ll temp;
 		cin >> temp; 
 		coinArray[i] = temp;
 	}
@@ -37,14 +37,14 @@ int main() {
 	// If not, they should move diagnol. 
 	// I dont think I can do BFS on a potentially NP hard chessboard in 2 seconds.
 	
-	int xw = size - 1;
-	int yw = 0;
+	ll xw = size - 1;
+	ll yw = 0;
 	
-	int xc = size - coinArray[0];
-	int yc = coinArray[1] - 1;
+	ll xc = size - coinArray[0];
+	ll yc = coinArray[1] - 1;
 	
-	int xb = size - 2;
-	int yb = size - 1;
+	ll xb = size - 2;
+	ll yb = size - 1;
 		
 	// the indexes are the rows. The item indicates the thing. 0 = Black king. 1 = Coin. 2 = White king.
 	someArray[xw][yw] = 2; // The White King.
@@ -60,7 +60,7 @@ int main() {
 		return 0;
 	}
 	
-	int turn = 2; // White Kings turn 
+	ll turn = 2; // White Kings turn 
 	bool isComplete = true;
 	
 	while (isComplete) {		
