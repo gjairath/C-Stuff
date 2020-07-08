@@ -43,7 +43,7 @@ int main() {
 	int xc = size - coinArray[0];
 	int yc = coinArray[1] - 1;
 	
-	int xb = size - 1;
+	int xb = size - 2;
 	int yb = size - 1;
 		
 	// the indexes are the rows. The item indicates the thing. 0 = Black king. 1 = Coin. 2 = White king.
@@ -51,12 +51,39 @@ int main() {
 	someArray[xc][yc] = 1;
 	someArray[xb][yb] = 0; 
 	
+	if (xw == xc && yw == yc) {
+		cout << "White";
+		return 0;
+	}
+	if (xb == xc && yb == yc) {
+		cout << "Black";
+		return 0;
+	}
+	
 	int turn = 2; // White Kings turn 
+	bool isComplete = true;
 	
-	if ( ((abs(yw - 1) == yc) || (abs(xw - 1) == xc)) && turn == 2) { // The white king is within legal bounds of the coin.
-		
-	}	
-	
+	while (isComplete) {		
+		if ( ((abs(yw - 1) == yc) || (abs(xw - 1) == xc)) && turn == 2) { // The white king is within legal bounds of the coin.
+			cout << "White";
+			return 0;
+		} else if ( ((abs(yb - 1) == yc) || (abs(xb - 1) == xc)) && turn == 1) {
+			cout << "Black";
+			return 0;
+		} else {
+			if (turn == 2) {
+				yw++;
+				xw++;
+				someArray[xw][yw] = 2; // THE KINGS CAN HOLD THE SAME SPOT, BLACKENING THE INITIAL IS FUTILE.
+				turn = 1;
+			} else {
+				xb++;
+				yb++;
+				someArray[xb][yb] = 1;
+				turn = 2;
+			}
+		}
+	}
 	return 0;
 	
 }
