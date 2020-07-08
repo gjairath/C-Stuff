@@ -1,11 +1,14 @@
 #include <iostream>
 #include <cstdio>
+#include <algorithm>
 
 using namespace std;
 
+typedef unsigned long long int ll;
+
 int main() {
 	
-	long long int number;
+	ll number;
 	cin >> number;
 	
 	if (number == 1) { cout << 1; return 0; }
@@ -18,15 +21,13 @@ int main() {
 		cout << (number) * (number - 1) * (number - 2);
 		return 0;
 	}
-	int max = (number) * (number - 1) * (number - 2);
-	if (number > 50) {
-		for (int i = (number); i >= number - 50; i++){
-			int val = (i) * (i - 1) * (i - 2);
-			if ( val > max) {
-				max = val;
-			}
-		}
+	
+	if (number % 3 == 0) {
+		cout << (number - 1) * (number - 2) * (number - 3);
+		return 0;
+	} else {
+		cout << (number) * (number - 1) * (number - 3);
+		return 0;
 	}
-	cout << max;
-	return 0;
+	
 }
