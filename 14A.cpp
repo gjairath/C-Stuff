@@ -9,22 +9,29 @@ using namespace std;
 
 int main() {
 	
-	// 5-7-5 Sylabels = Vowels
-	// Sample string
- 
- 	char mat[3][4];
- 	string line;
- 	scanf("%s %s %s", mat[0], mat[1], mat[2]);
- 	
- 	//   XX.
-	//   ...
-	//   .XX
+	int rows, cols;
+	cin >> rows >> cols;
 	
-	if (mat[0][0] == mat[2][2] && mat[0][1] == mat[2][1] && mat[1][0] == mat[1][2] && mat[2][0] == mat[0][2]) {
-		cout << "YES";
-	} else {
-		cout << "NO";
+	string input_string;
+	cin >> input_string;
+	
+	int max_squares = 0;
+	
+	for (int i = 0; i < rows; i++) {
+		int counter = 0;
+			for (int j = 0; j < cols; j++) {
+				if (input_string[i] == '*') {
+					//cout << counter;
+					counter++;
+				}
+			}
+			if (max_squares < counter) {
+				max_squares = counter; // 2nd line may have more squares than the first.
+			}
 	}
+	
+	cout << max_squares;
+	
 	
     return 0;
 	
