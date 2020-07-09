@@ -9,7 +9,7 @@ int main() {
 	
 	int rows, cols;
 	cin >> rows >> cols;
-	char a[rows][cols];
+	char a[101][101];
 	
 	int x = 1e8, xm = 0, y = 1e8, ym = 0;
 	
