@@ -37,11 +37,12 @@ int main() {
 			int arr[tmp1];
 			for (int l = 0; l < tmp1; l++) {
 				arr[l] = num_array[l];
+				num_array.erase(num_array.begin());
 			}
 			sum += *max_element(arr, arr + tmp1) + *min_element(arr, arr + tmp1);
-			
+		//	cout << "numbers : " << num_nums;
 		}
-		cout << endl << sum << endl;
+		cout << "sum :" << sum << endl;
 
 	}
 //	cout << sum << endl;
